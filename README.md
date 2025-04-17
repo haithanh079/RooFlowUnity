@@ -1,10 +1,10 @@
 <div style="max-width: 800px; margin-left: auto; margin-right: auto; text-align: left;">
 
-##### For those who wish to create other modes, I've added a [modules](https://github.com/GreatScottyMac/RooFlow/tree/main/modules) directory, containing the components of the RooFlow system prompts. Basically you would need to modify [modes.yml](https://github.com/GreatScottyMac/RooFlow/blob/main/modules/modes.yml) so that your new mode will interact correctly with the other modes. Then replace that section of [rooflow_core_prompt.yaml](https://github.com/GreatScottyMac/RooFlow/blob/main/modules/rooflow_core_prompt.yaml) and add the [memory_bank_strategy.yml](https://github.com/GreatScottyMac/RooFlow/blob/main/modules/memory_bank_strategy.yml) to the end of your `system-prompt-[mode]` file. You'll also need to add an entry to the [.roomodes](https://github.com/GreatScottyMac/RooFlow/blob/main/config/.roomodes) file. 
+##### For those who wish to create other modes, I've added a [modules](https://github.com/haithanh079/RooFlowUnity/tree/main/modules) directory, containing the components of the RooFlow system prompts. Basically you would need to modify [modes.yml](https://github.com/haithanh079/RooFlowUnity/blob/main/modules/modes.yml) so that your new mode will interact correctly with the other modes. Then replace that section of [rooflow_core_prompt.yaml](https://github.com/haithanh079/RooFlowUnity/blob/main/modules/rooflow_core_prompt.yaml) and add the [memory_bank_strategy.yml](https://github.com/haithanh079/RooFlowUnity/blob/main/modules/memory_bank_strategy.yml) to the end of your `system-prompt-[mode]` file. You'll also need to add an entry to the [.roomodes](https://github.com/haithanh079/RooFlowUnity/blob/main/config/.roomodes) file. 
 
 ##### Now with install scripts for [Windows](https://raw.githubusercontent.com/GreatScottyMac/RooFlow/main/config/install_rooflow.cmd) and [Linux/macOS](https://raw.githubusercontent.com/GreatScottyMac/RooFlow/main/config/install_rooflow.sh)!
 
-##### [Default Mode](https://github.com/GreatScottyMac/RooFlow#install-global-default-and-boomerang-modes) and [Boomerang Mode](https://github.com/GreatScottyMac/RooFlow#install-global-default-and-boomerang-modes) are available for manual installation.
+##### [Default Mode](https://github.com/haithanh079/RooFlowUnity#install-global-default-and-boomerang-modes) and [Boomerang Mode](https://github.com/haithanh079/RooFlowUnity#install-global-default-and-boomerang-modes) are available for manual installation.
 
 ##### For MCP server use in RooFlow custom modes, there is a `MCP_SERVERS_PLACEHOLDER` in the `system-prompt-[mode]` files where connected MCP servers will need to be inserted.
 </div>
@@ -23,7 +23,7 @@
 **Persistent Project Context and Streamlined AI-Assisted Development**
 
 [![Roo Code](https://img.shields.io/badge/VS%20Code-Extension-blue.svg)](https://github.com/RooVetGit/Roo-Code)
-[![RooFlow](https://img.shields.io/badge/View%20on-GitHub-lightgrey.svg)](https://github.com/GreatScottyMac/RooFlow)
+[![RooFlow](https://img.shields.io/badge/View%20on-GitHub-lightgrey.svg)](https://github.com/haithanh079/RooFlowUnity)
 
 </div>
 
@@ -855,7 +855,7 @@ The command "Update Memory Bank" or "UMB" can be given at any time to update the
 
 ## Contributing
 
-Contributions to RooFlow are welcome! Please see the [CONTRIBUTING.md](https://github.com/GreatScottyMac/RooFlow/blob/main/CONTRIBUTING.md) file (you'll need to create this) for guidelines.
+Contributions to RooFlow are welcome! Please see the [CONTRIBUTING.md](https://github.com/haithanh079/RooFlowUnity/blob/main/CONTRIBUTING.md) file (you'll need to create this) for guidelines.
 
 ## License
-  [Apache 2.0](https://github.com/GreatScottyMac/RooFlow/blob/main/LICENSE>)
+  [Apache 2.0](https://github.com/haithanh079/RooFlowUnity/blob/main/LICENSE>)

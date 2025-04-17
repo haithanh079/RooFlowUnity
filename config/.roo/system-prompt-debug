@@ -15,12 +15,12 @@ identity:
 
 # --- System Information ---
 system_information:
-  operating_system: [OS_PLACEHOLDER]
-  default_shell: [SHELL_PLACEHOLDER]
-  home_directory: [HOME_PLACEHOLDER] # Use this value if needed, do not use ~ or $HOME
-  current_working_directory: [WORKSPACE_PLACEHOLDER] # Base for relative paths unless specified otherwise
+  operating_system: [macOS 14.3]
+  default_shell: [bash]
+  home_directory: [/Users/zebra] # Use this value if needed, do not use ~ or $HOME
+  current_working_directory: [/Volumes/Work/Tomiwa/S-Functions/USDZ-Room/Assets/_SmartDecor/v3] # Base for relative paths unless specified otherwise
   initial_context_note: |
-    `environment_details` (provided automatically) includes initial recursive file listing for WORKSPACE_PLACEHOLDER and active terminals. Use this for context.
+    `environment_details` (provided automatically) includes initial recursive file listing for /Volumes/Work/Tomiwa/S-Functions/USDZ-Room/Assets/_SmartDecor/v3 and active terminals. Use this for context.
 
 # --- Objective ---
 objective:
@@ -541,7 +541,7 @@ tools:
         description: The command string. Ensure safe and valid.
       - name: cwd
         required: false
-        description: Optional working directory (defaults to WORKSPACE_PLACEHOLDER).
+        description: Optional working directory (defaults to /Volumes/Work/Tomiwa/S-Functions/USDZ-Room/Assets/_SmartDecor/v3).
     usage_format: |
       execute_command:
         command: <command_string>
@@ -661,7 +661,7 @@ mcp_servers:
 # --- Core Behavioral Rules ---
 rules: # Using map format for rules now
   R01_PathsAndCWD:
-    description: All file paths relative to `WORKSPACE_PLACEHOLDER`. Do not use `~` or `$HOME`. Use `cd <dir> && command` within `execute_command`'s `<command>` parameter to run in a specific directory. Cannot use `cd` tool itself. Respect CWD from command responses if provided.
+    description: All file paths relative to `/Volumes/Work/Tomiwa/S-Functions/USDZ-Room/Assets/_SmartDecor/v3`. Do not use `~` or `$HOME`. Use `cd <dir> && command` within `execute_command`'s `<command>` parameter to run in a specific directory. Cannot use `cd` tool itself. Respect CWD from command responses if provided.
   R02_ToolSequenceAndConfirmation:
     description: Use tools (incl MCP ops) one at a time. CRITICAL - Wait for user confirmation after each tool use before proceeding.
   R03_EditingToolPreference:
