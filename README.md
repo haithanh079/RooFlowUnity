@@ -345,11 +345,11 @@ memory_bank_strategy:
         I will read all memory bank files, one at a time.
         </thinking>
         Plan: Read all mandatory files sequentially.
-        1. Read `productContext.md`
-        2. Read `activeContext.md` 
-        3. Read `systemPatterns.md` 
-        4. Read `decisionLog.md` 
-        5. Read `progress.md` 
+        1. Read `.productContext.md`
+        2. Read `.activeContext.md` 
+        3. Read `.systemPatterns.md` 
+        4. Read `.decisionLog.md` 
+        5. Read `.progress.md` 
         6. Set status to [MEMORY BANK: ACTIVE] and inform user.
         7. Proceed with the task using the context from the Memory Bank or if no task is provided, use the ask_followup_question tool.
       
@@ -359,44 +359,44 @@ general:
 memory_bank_updates:
   frequency:
   - "UPDATE MEMORY BANK THROUGHOUT THE CHAT SESSION, WHEN SIGNIFICANT CHANGES OCCUR IN THE PROJECT."
-  decisionLog.md:
+  .decisionLog.md:
     trigger: "When a significant architectural decision is made (new component, data flow change, technology choice, etc.). Use your judgment to determine significance."
     action: |
       <thinking>
-      I need to update decisionLog.md with a decision, the rationale, and any implications. 
+      I need to update .decisionLog.md with a decision, the rationale, and any implications. 
       </thinking>
       Use insert_content to *append* new information. Never overwrite existing entries. Always include a timestamp.  
     format: |
       "[YYYY-MM-DD HH:MM:SS] - [Summary of Change/Focus/Issue]"
-  productContext.md:
+  .productContext.md:
     trigger: "When the high-level project description, goals, features, or overall architecture changes significantly. Use your judgment to determine significance."
     action: |
       <thinking>
-      A fundamental change has occurred which warrants an update to productContext.md.
+      A fundamental change has occurred which warrants an update to .productContext.md.
       </thinking>
       Use insert_content to *append* new information or use apply_diff to modify existing entries if necessary. Timestamp and summary of change will be appended as footnotes to the end of the file.
     format: "[YYYY-MM-DD HH:MM:SS] - [Summary of Change]"
-  systemPatterns.md:
+  .systemPatterns.md:
     trigger: "When new architectural patterns are introduced or existing ones are modified. Use your judgement."
     action: |
       <thinking>
-      I need to update systemPatterns.md with a brief summary and time stamp.
+      I need to update .systemPatterns.md with a brief summary and time stamp.
       </thinking>
       Use insert_content to *append* new patterns or use apply_diff to modify existing entries if warranted. Always include a timestamp.
     format: "[YYYY-MM-DD HH:MM:SS] - [Description of Pattern/Change]"
-  activeContext.md:
+  .activeContext.md:
     trigger: "When the current focus of work changes, or when significant progress is made. Use your judgement."
     action: |
       <thinking>
-      I need to update activeContext.md with a brief summary and time stamp.
+      I need to update .activeContext.md with a brief summary and time stamp.
       </thinking>
       Use insert_content to *append* to the relevant section (Current Focus, Recent Changes, Open Questions/Issues) or use apply_diff to modify existing entries if warranted.  Always include a timestamp.
     format: "[YYYY-MM-DD HH:MM:SS] - [Summary of Change/Focus/Issue]"
-  progress.md:
+  .progress.md:
       trigger: "When a task begins, is completed, or if there are any changes Use your judgement."
       action: |
         <thinking>
-        I need to update progress.md with a brief summary and time stamp.
+        I need to update .progress.md with a brief summary and time stamp.
         </thinking>
         Use insert_content to *append* the new entry, never overwrite existing entries. Always include a timestamp.
       format: "[YYYY-MM-DD HH:MM:SS] - [Summary of Change/Focus/Issue]"
@@ -433,7 +433,7 @@ umb:
           - Ensure cross-mode consistency
           - Preserve activity context
           - Document continuation points
-  task_focus: "During a UMB update, focus on capturing any clarifications, questions answered, or context provided *during the chat session*. This information should be added to the appropriate Memory Bank files (likely `activeContext.md` or `decisionLog.md`), using the other modes' update formats as a guide.  *Do not* attempt to summarize the entire project or perform actions outside the scope of the current chat."
+  task_focus: "During a UMB update, focus on capturing any clarifications, questions answered, or context provided *during the chat session*. This information should be added to the appropriate Memory Bank files (likely `.activeContext.md` or `.decisionLog.md`), using the other modes' update formats as a guide.  *Do not* attempt to summarize the entire project or perform actions outside the scope of the current chat."
   cross-mode_updates: "During a UMB update, ensure that all relevant information from the chat session is captured and added to the Memory Bank. This includes any clarifications, questions answered, or context provided during the chat. Use the other modes' update formats as a guide for adding this information to the appropriate Memory Bank files."
   post_umb_actions:
     - "Memory Bank fully synchronized"
@@ -689,11 +689,11 @@ memory_bank_strategy:
         I will read all memory bank files, one at a time.
         </thinking>
         Plan: Read all mandatory files sequentially.
-        1. Read `productContext.md`
-        2. Read `activeContext.md` 
-        3. Read `systemPatterns.md` 
-        4. Read `decisionLog.md` 
-        5. Read `progress.md` 
+        1. Read `.productContext.md`
+        2. Read `.activeContext.md` 
+        3. Read `.systemPatterns.md` 
+        4. Read `.decisionLog.md` 
+        5. Read `.progress.md` 
         6. Set status to [MEMORY BANK: ACTIVE] and inform user.
         7. Proceed with the task using the context from the Memory Bank or if no task is provided, use the ask_followup_question tool.
       
@@ -703,44 +703,44 @@ general:
 memory_bank_updates:
   frequency:
   - "UPDATE MEMORY BANK THROUGHOUT THE CHAT SESSION, WHEN SIGNIFICANT CHANGES OCCUR IN THE PROJECT."
-  decisionLog.md:
+  .decisionLog.md:
     trigger: "When a significant architectural decision is made (new component, data flow change, technology choice, etc.). Use your judgment to determine significance."
     action: |
       <thinking>
-      I need to update decisionLog.md with a decision, the rationale, and any implications. 
+      I need to update .decisionLog.md with a decision, the rationale, and any implications. 
       </thinking>
       Use insert_content to *append* new information. Never overwrite existing entries. Always include a timestamp.  
     format: |
       "[YYYY-MM-DD HH:MM:SS] - [Summary of Change/Focus/Issue]"
-  productContext.md:
+  .productContext.md:
     trigger: "When the high-level project description, goals, features, or overall architecture changes significantly. Use your judgment to determine significance."
     action: |
       <thinking>
-      A fundamental change has occurred which warrants an update to productContext.md.
+      A fundamental change has occurred which warrants an update to .productContext.md.
       </thinking>
       Use insert_content to *append* new information or use apply_diff to modify existing entries if necessary. Timestamp and summary of change will be appended as footnotes to the end of the file.
     format: "[YYYY-MM-DD HH:MM:SS] - [Summary of Change]"
-  systemPatterns.md:
+  .systemPatterns.md:
     trigger: "When new architectural patterns are introduced or existing ones are modified. Use your judgement."
     action: |
       <thinking>
-      I need to update systemPatterns.md with a brief summary and time stamp.
+      I need to update .systemPatterns.md with a brief summary and time stamp.
       </thinking>
       Use insert_content to *append* new patterns or use apply_diff to modify existing entries if warranted. Always include a timestamp.
     format: "[YYYY-MM-DD HH:MM:SS] - [Description of Pattern/Change]"
-  activeContext.md:
+  .activeContext.md:
     trigger: "When the current focus of work changes, or when significant progress is made. Use your judgement."
     action: |
       <thinking>
-      I need to update activeContext.md with a brief summary and time stamp.
+      I need to update .activeContext.md with a brief summary and time stamp.
       </thinking>
       Use insert_content to *append* to the relevant section (Current Focus, Recent Changes, Open Questions/Issues) or use apply_diff to modify existing entries if warranted.  Always include a timestamp.
     format: "[YYYY-MM-DD HH:MM:SS] - [Summary of Change/Focus/Issue]"
-  progress.md:
+  .progress.md:
       trigger: "When a task begins, is completed, or if there are any changes Use your judgement."
       action: |
         <thinking>
-        I need to update progress.md with a brief summary and time stamp.
+        I need to update .progress.md with a brief summary and time stamp.
         </thinking>
         Use insert_content to *append* the new entry, never overwrite existing entries. Always include a timestamp.
       format: "[YYYY-MM-DD HH:MM:SS] - [Summary of Change/Focus/Issue]"
@@ -777,7 +777,7 @@ umb:
           - Ensure cross-mode consistency
           - Preserve activity context
           - Document continuation points
-  task_focus: "During a UMB update, focus on capturing any clarifications, questions answered, or context provided *during the chat session*. This information should be added to the appropriate Memory Bank files (likely `activeContext.md` or `decisionLog.md`), using the other modes' update formats as a guide.  *Do not* attempt to summarize the entire project or perform actions outside the scope of the current chat."
+  task_focus: "During a UMB update, focus on capturing any clarifications, questions answered, or context provided *during the chat session*. This information should be added to the appropriate Memory Bank files (likely `.activeContext.md` or `.decisionLog.md`), using the other modes' update formats as a guide.  *Do not* attempt to summarize the entire project or perform actions outside the scope of the current chat."
   cross-mode_updates: "During a UMB update, ensure that all relevant information from the chat session is captured and added to the Memory Bank. This includes any clarifications, questions answered, or context provided during the chat. Use the other modes' update formats as a guide for adding this information to the appropriate Memory Bank files."
   post_umb_actions:
     - "Memory Bank fully synchronized"
@@ -824,11 +824,11 @@ The Memory Bank is a directory named `memory-bank` located in your project's roo
 
 | File                 | Purpose                                                                                                                               |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `activeContext.md`   | Tracks the current session's context: recent changes, current goals, and open questions/issues.                                       |
-| `decisionLog.md`     | Records architectural and implementation decisions, including the context, decision, rationale, and implementation details.        |
-| `productContext.md`  | Provides a high-level overview of the project, including its goals, features, and overall architecture.                             |
-| `progress.md`        | Tracks the progress of the project, including completed work, current tasks, and next steps.  Uses a task list format.               |
-| `systemPatterns.md` | (Optional) Documents recurring patterns and standards used in the project (coding patterns, architectural patterns, testing patterns). |
+| `.activeContext.md`   | Tracks the current session's context: recent changes, current goals, and open questions/issues.                                       |
+| `.decisionLog.md`     | Records architectural and implementation decisions, including the context, decision, rationale, and implementation details.        |
+| `.productContext.md`  | Provides a high-level overview of the project, including its goals, features, and overall architecture.                             |
+| `.progress.md`        | Tracks the progress of the project, including completed work, current tasks, and next steps.  Uses a task list format.               |
+| `.systemPatterns.md` | (Optional) Documents recurring patterns and standards used in the project (coding patterns, architectural patterns, testing patterns). |
 
 RooFlow automatically manages these files. You generally don't need to edit them directly, although you can review them to understand the AI's knowledge.
 
