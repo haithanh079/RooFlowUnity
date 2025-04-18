@@ -1,0 +1,12 @@
+{
+  "modes": {
+    "code": {
+      "enabled": false,
+      "requires_permission": true
+    },
+    "configurator": {
+      "enabled": true,
+      "requires_permission": false
+    }
+  }
+}
