@@ -181,7 +181,7 @@ memory_bank_strategy:
       - **CHECK FOR MEMORY BANK:**
       </thinking>
           <thinking>
-        * First, check if the memory-bank/ directory exists.
+        * First, check if the .memory-bank/ directory exists.
           </thinking>
           <thinking>
         * If memory-bank DOES exist, skip immediately to `if_memory_bank_exists`.

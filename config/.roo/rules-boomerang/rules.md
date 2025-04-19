@@ -251,7 +251,7 @@ memory_bank_strategy:
   initialization: |
             - **CHECK FOR MEMORY BANK:**
      
-                  * First, check if the memory-bank/ directory exists.
+                  * First, check if the .memory-bank/ directory exists.
          
                   * If memory-bank DOES exist, skip immediately to `if_memory_bank_exists`.
          
@@ -381,11 +381,11 @@ configurator:
   actions:
     - action: "Clear memory bank files"
     - action: "Clear .decisionLog.md"
-      command: "write_to_file memory-bank/core/.decisionLog.md '' 0"
+      command: "write_to_file .memory-bank/core/.decisionLog.md '' 0"
     - action: "Clear .progress.md"
-      command: "write_to_file memory-bank/core/.progress.md '' 0"
+      command: "write_to_file .memory-bank/core/.progress.md '' 0"
     - action: "Clear .activeContext.md"
-      command: "write_to_file memory-bank/core/.activeContext.md '' 0"
+      command: "write_to_file .memory-bank/core/.activeContext.md '' 0"
   post_cum_actions:
     - "Memory Bank cleaned"
     - "Operation complete"

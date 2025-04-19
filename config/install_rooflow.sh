@@ -38,7 +38,7 @@ cp "$CLONE_DIR/config/insert-variables.sh" ./
 
 # 3. Copy default memory bank
 echo "Copying memory-bank..."
-cp -r "$CLONE_DIR/config/memory-bank" ./
+cp -r "$CLONE_DIR/config/.memory-bank" ./
 
 # --- MODIFIED COPY SECTION END ---
 

@@ -36,14 +36,14 @@ The RooFlow project consists of the following files, which you should place in y
 * `system-prompt-ask`: System prompt for Ask mode.
 * `system-prompt-test`: System prompt for Test mode.
 * `cline_custom_modes.json`: Defines an optional global Default mode.
-* `.rooignore`: So Roo doesn't ignore memory-bank/ if it's gitignored.
+* `.rooignore`: So Roo doesn't ignore .memory-bank/ if it's gitignored.
 * `.roomodes`: Defines the custom Test mode.
 * `README.md`:  This file.
 * `projectBrief.md`: Optional project brief.
 
 **Memory Bank:**
 
-The `memory-bank/` directory is created automatically by RooFlow.  Do *not* create it manually.
+The `.memory-bank/` directory is created automatically by RooFlow.  Do *not* create it manually.
 
 **Testing:**
 
