@@ -1,56 +1,79 @@
-# Role Custom Instructions
-1. Do some information gathering (for example using read_file or search_files) to get more context about the task. Especially what are the existing utilities or components that you should reuse instead of re-creating. Be very preservative on adding new things (enum, fields, class, interface, structs...) to reduce cognitive load
+## Initial Context Building
 
-2. You should also ask the user clarifying questions to get a better understanding of the task. Focus for the happy case, no future proofing or edge cases, no testing, no documentation. Strictly focus on what the current status of the project needs, never write a method or class or field without an actual usage.
+1. **Read Architecture Documentation First**
+   - ALWAYS begin by reading `.memory-bank/design/project_architecture.md` to understand the overall project structure, patterns, and design principles.
+   - This step is mandatory before proceeding with any task analysis.
 
-3. Once you've gained more context about the user's request, you should create a detailed plan for how to accomplish the task. Include Mermaid diagrams if they help make your plan clearer.
+## Workflow
 
-4. List out what changes in outline section and number it from 1...N in the design document
-    - Class names
-    - Field declarations
-    - Method signatures (including parameters and return types)
-    - Empty function bodies with `// TODO` comments for implementation later.
+1. Scout First  
+   Use `read_file`, `search_files`, or other tools to gather context. Reuse existing utilities/components. Avoid introducing new types unless absolutely necessary.
 
-5. Ask user what would they like to change to the design document
-    - Ask more question if needed to fully understand
-    - Make changes to the design document directly following user's feedback, do not create new design file, modify, refine the existing one
-    - Keep iterating within this step until user is happy with the design
-6. CRITICAL: ALWAYS wait for user confirmation of success after EACH tool use before proceeding.
-7. Use the switch_mode tool to request that the user switch to another mode to implement the solution.
-8. CRITICAL: After any design discussion or agreement with the user, ALWAYS update the design document before ending the session. Never summarize changes without actually updating the document.
+2. Ask Clarifying Questions  
+   Focus only on the happy path. Avoid future-proofing, edge cases, testing, or documentation. No implementation code is allowed at this stage.
 
-# Guidelines
-- Ensure logic correctness through recursive improvement
-- Use existing code where possible - adapt and reuse
-- Simplicity is the key, reduce cognitive load, use the common sense
-- Do as little as possible, do exactly as needed - no more
-- Do respect the input output requirements, ask if unclear
-- If updating base classes, verify all implementations
-- Favor early return and flat control flow (reduce nesting)
-- Favor fields over properties
-- Use `Array.Empty<T>()` instead of `new T[0]`
+3. Create Implementation Plan (only after fully understanding the task)  
+   Focus on:
+   - Best effort-to-impact return
+   - Bare minimum needed
+   - Reusable or adaptable components
+   - Tasks that can be postponed
+
+4. Design Feedback Loop  
+   Reflect on purpose, effort vs benefit:
+   - What to exclude, simplify, or delay
+   - Note risks, flaws, or missing logic (not necessarily solve)
+   Then:
+   - Ask user for review
+   - Redesign and update existing design file only
+   - Iterate until user confirms
+
+5. Use `switch_mode` to hand off implementation once design is confirmed.
+
+---
+
+## Design Output Expectations
+
+1. Plan Overview  
+   - High-level system description  
+   - Major module/system interactions  
+   - Avoid low-level detail unless essential
+
+2. Change List  
+   List all new/removed/modified items, each with purpose:
+   - Classes / Structs / Enums  
+   - Fields / Properties  
+   - Method signatures with `// TODO: ...` in body explaining implementation flow or dependencies (no actual code)
+
+---
+
+## Guidelines
+
+- Ensure logical correctness (refine iteratively)
+- Prefer reuse over new implementation
+- Keep it simple, focused, and clear
+- Do exactly what's needed — no more
+- Follow Unity standards (e.g. serializable types, supported syntax)
+- Prefer:
+  - Early return
+  - Flat control flow
+  - Fields over properties
+  - `Array.Empty<T>()` over `new T[0]`
+  - Maintainable, readable structure
 - Update imports after changes
-- Check & use unity supported serializable types
-- Maintain high readability, maintainability, and reusability
-
-# Restrictions
-- No `/// <summary>` tags
-- No `try/catch` blocks  
-- No `#region` directives
-- No comments
-- No `#pragma` directives
-- No over-engineering
-- No shallow method or function
-- No new mode or config for future proofing
-- No over-engineer. Keep it simple and focused on the task at hand with designs that we can always iterate on later.
-- No /// <summary> or /// <description> comments. These are not needed in the outlines.
-- No constructor ever. Use Init() method instead.
-- No new files, classes, method, properties... unless absolutely necessary
-- No tiny methods (<5 lines) in utility classes
-- No constructor for serializable classes - use `public T init()`
-- Never use PowerShell; use `zsh` if needed
-- Code must always compile - no broken brackets, imports or scopes
-- No duplicated logic - extract from existing codebase
-
-# Compatibility
+- Respect scopes (`public`, `private`, `internal`)
 - Must support Unity 2020.3+
+
+---
+
+## Restrictions
+
+- No `/// <summary>` or doc tags  
+- No `try/catch`, `#region`, `#pragma`, or PowerShell  
+- No over-engineering or abstracting prematurely  
+- No constructors (use `Init()` instead)  
+- No tiny (<5 line) utility methods  
+- No constructor for serializable classes (use `public T Init()` if needed)  
+- No new files, types, or members unless absolutely required  
+- Code must compile — no broken imports, brackets, or scopes  
+- No duplicated logic — extract and reuse existing code

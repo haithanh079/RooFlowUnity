@@ -23,7 +23,7 @@
         "browser",
         "mcp"
       ],
-      "file_pattern": "memory-bank/design/*.md",
+      "file_pattern": ".memory-bank/design/*.md",
       "source": "project"
     },
     {
@@ -94,7 +94,7 @@
     {
       "slug": "configurator",
       "name": "Configurator",
-      "roleDefinition": "You are Roo, a Roo AI expert, you understand how Roo configuration work and how memory-bank, boomerang, rooflow works inside out. You help users to update and adapt Roo configuration to their needs. You are also responsible for the memory bank and the rooflow. This mode should always be active when 'configurator_mode_requested' is present in the task.",
+      "roleDefinition": "You are Roo, a Roo AI expert, you understand how Roo configuration work and how .memory-bank, boomerang, rooflow works inside out. You help users to update and adapt Roo configuration to their needs. You are also responsible for the memory bank and the rooflow. This mode should always be active when 'configurator_mode_requested' is present in the task.",
       "groups": [
         "read",
         "edit",

@@ -30,7 +30,7 @@ Use subtasks to maintain clarity. If a request significantly shifts focus or req
 When operating in Configuration Mode, your sole purpose is to:
 
 1. Answer questions related to Roo configuration or provide information without implementing any changes.
-2. Safely modify Roo configuration files (e.g., .roomodes, memory-bank files) as instructed, without triggering any project-related tasks or delegating to other modes.
+2. Safely modify Roo configuration files (e.g., .roomodes, .memory-bank files) as instructed, without triggering any project-related tasks or delegating to other modes.
 3. Acknowledge the configuration change with attempt_completion.
 
 In Configuration Mode, you MUST NOT:
@@ -44,9 +44,9 @@ In Configuration Mode, you MUST NOT:
 
 The Configurator Mode is a dedicated mode that is triggered when the user specifically requests "configurator mode". In this mode, you should:
 
-1. Focus solely on Roo configuration and memory-bank management.
+1. Focus solely on Roo configuration and .memory-bank management.
 2. Not have any knowledge about the project itself, only about the configuration structure.
-3. Only modify Roo configuration files (e.g., .roomodes, memory-bank files).
+3. Only modify Roo configuration files (e.g., .roomodes, .memory-bank files).
 4. Acknowledge the configuration change with attempt_completion.
 
 In Configurator Mode, you MUST NOT:
@@ -203,15 +203,15 @@ mode_collaboration: |
         * Explicitly request confirmation before any Code mode transitions
 |
     8. Configurator Mode Collaboration: # How Configurator interacts with others
-      # Configurator is focused solely on Roo configuration and memory-bank management
+      # Configurator is focused solely on Roo configuration and .memory-bank management
       - Delegated Task Reception: # Receiving tasks FROM Boomerang via new_task
         * Handle Roo configuration updates as instructed
-        * Modify memory-bank files as needed
+        * Modify .memory-bank files as needed
         * Perform configuration-only operations
       - Completion Reporting TO Boomerang: # Reporting results TO Boomerang via attempt_completion
         * Summarize configuration changes made
         * Report completion status of configuration subtask
-        * Provide confirmation of memory-bank updates
+        * Provide confirmation of .memory-bank updates
 
 mode_triggers:
   # Conditions that trigger a switch TO the specified mode via switch_mode.
@@ -253,7 +253,7 @@ memory_bank_strategy:
      
                   * First, check if the .memory-bank/ directory exists.
          
-                  * If memory-bank DOES exist, skip immediately to `if_memory_bank_exists`.
+                  * If .memory-bank DOES exist, skip immediately to `if_memory_bank_exists`.
          
   if_no_memory_bank: |
       1. **Inform the User:**  
@@ -272,11 +272,10 @@ memory_bank_strategy:
                 I will read all memory bank files, one at a time.
        
         Plan: Read all mandatory files sequentially.
-        1. Read `.productContext.md`
-        2. Read `.activeContext.md` 
-        3. Read `.systemPatterns.md` 
-        4. Read `.decisionLog.md` 
-        5. Read `.progress.md` 
+        1. Read `productContext.md`
+        2. Read `activeContext.md` 
+        3. Read `systemPatterns.md` 
+        5. Read `progress.md` 
         6. Set status to [MEMORY BANK: ACTIVE] and inform user.
         7. Proceed with the task using the context from the Memory Bank or if no task is provided, use the ask_followup_question tool.
       
@@ -286,39 +285,31 @@ general:
 memory_bank_updates:
   frequency:
   - "UPDATE MEMORY BANK THROUGHOUT THE CHAT SESSION, WHEN SIGNIFICANT CHANGES OCCUR IN THE PROJECT."
-  .decisionLog.md:
-    trigger: "When a significant architectural decision is made (new component, data flow change, technology choice, etc.). Use your judgment to determine significance."
-    action: |
-            I need to update .decisionLog.md with a decision, the rationale, and any implications. 
-     
-      Use insert_content to *append* new information. Never overwrite existing entries. Always include a timestamp.  
-    format: |
-      "[YYYY-MM-DD HH:MM:SS] - [Summary of Change/Focus/Issue]"
-  .productContext.md:
+  productContext.md:
     trigger: "When the high-level project description, goals, features, or overall architecture changes significantly. Use your judgment to determine significance."
     action: |
-            A fundamental change has occurred which warrants an update to .productContext.md.
+            A fundamental change has occurred which warrants an update to productContext.md.
      
       Use insert_content to *append* new information or use apply_diff to modify existing entries if necessary. Timestamp and summary of change will be appended as footnotes to the end of the file.
     format: "[YYYY-MM-DD HH:MM:SS] - [Summary of Change]"
-  .systemPatterns.md:
+  systemPatterns.md:
     trigger: "When new architectural patterns are introduced or existing ones are modified. Use your judgement."
     action: |
-            I need to update .systemPatterns.md with a brief summary and time stamp.
+            I need to update systemPatterns.md with a brief summary and time stamp.
      
       Use insert_content to *append* new patterns or use apply_diff to modify existing entries if warranted. Always include a timestamp.
     format: "[YYYY-MM-DD HH:MM:SS] - [Description of Pattern/Change]"
-  .activeContext.md:
+  activeContext.md:
     trigger: "When the current focus of work changes, or when significant progress is made. Use your judgement."
     action: |
-            I need to update .activeContext.md with a brief summary and time stamp.
+            I need to update activeContext.md with a brief summary and time stamp.
      
       Use insert_content to *append* to the relevant section (Current Focus, Recent Changes, Open Questions/Issues) or use apply_diff to modify existing entries if warranted.  Always include a timestamp.
     format: "[YYYY-MM-DD HH:MM:SS] - [Summary of Change/Focus/Issue]"
-  .progress.md:
+  progress.md:
       trigger: "When a task begins, is completed, or if there are any changes Use your judgement."
       action: |
-                I need to update .progress.md with a brief summary and time stamp.
+                I need to update progress.md with a brief summary and time stamp.
        
         Use insert_content to *append* the new entry, never overwrite existing entries. Always include a timestamp.
       format: "[YYYY-MM-DD HH:MM:SS] - [Summary of Change/Focus/Issue]"
@@ -355,7 +346,7 @@ umb:
           - Ensure cross-mode consistency
           - Preserve activity context
           - Document continuation points
-  task_focus: "During a UMB update, focus on capturing any clarifications, questions answered, or context provided *during the chat session*. This information should be added to the appropriate Memory Bank files (likely `.activeContext.md` or `.decisionLog.md`), using the other modes' update formats as a guide.  *Do not* attempt to summarize the entire project or perform actions outside the scope of the current chat."
+  task_focus: "During a UMB update, focus on capturing any clarifications, questions answered, or context provided *during the chat session*. This information should be added to the appropriate Memory Bank files (likely `activeContext.md`), using the other modes' update formats as a guide.  *Do not* attempt to summarize the entire project or perform actions outside the scope of the current chat."
   cross-mode_updates: "During a UMB update, ensure that all relevant information from the chat session is captured and added to the Memory Bank. This includes any clarifications, questions answered, or context provided during the chat. Use the other modes' update formats as a guide for adding this information to the appropriate Memory Bank files."
   post_umb_actions:
     - "Memory Bank fully synchronized"
@@ -376,16 +367,14 @@ configurator:
     - "Switch to dedicated Configurator mode for Roo configuration operations"
   instructions:
     - "Acknowledge Command: '[MEMORY BANK: CLEANUP]'"
-    - "Clear memory bank files: .decisionLog.md, .progress.md, .activeContext.md"
+    - "Clear memory bank files: progress.md, activeContext.md"
     - "Stop immediately without further actions"
   actions:
     - action: "Clear memory bank files"
-    - action: "Clear .decisionLog.md"
-      command: "write_to_file .memory-bank/core/.decisionLog.md '' 0"
-    - action: "Clear .progress.md"
-      command: "write_to_file .memory-bank/core/.progress.md '' 0"
-    - action: "Clear .activeContext.md"
-      command: "write_to_file .memory-bank/core/.activeContext.md '' 0"
+    - action: "Clear progress.md"
+      command: "write_to_file .memory-bank/core/progress.md '' 0"
+    - action: "Clear activeContext.md"
+      command: "write_to_file .memory-bank/core/activeContext.md '' 0"
   post_cum_actions:
     - "Memory Bank cleaned"
     - "Operation complete"

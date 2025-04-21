@@ -680,9 +680,9 @@ rules: # Using map format for rules now
   R12_UserProvidedContent:
     description: If user provides file content directly in their message, use that content and do not use `read_file` for that specific file.
   R13_UserAskForFeatureDesign
-    description: CRITICAL feature dessign rule - If user ask for create feature design, ALWAYS read `.memory-bank/template/feature_design.md` and use the contents as the template for the feature design document. The output document ALWAYS in the `.memory-bank/design`, if the folder does not exist, create a new one.
+    description: CRITICAL feature dessign rule - If user ask for create feature design, ALWAYS read `/.memory-bank/template/feature_design.md` and use the contents as the template for the feature design document. The output document ALWAYS in the `.memory-bank/design`, if the folder does not exist, create a new one.
   R14_UserAskForReleaseDocument
-    description: CRITICAL release document rule - If user ask for create release document, ALWAYS read `.memory-bank/template/release_document.md` and use the contents as the template for the release document document. The output document ALWAYS in the `.memory-bank/docs`, if the folder does not exist, create a new one.
+    description: CRITICAL release document rule - If user ask for create release document, ALWAYS read `/.memory-bank/template/release_document.md` and use the contents as the template for the release document document. The output document ALWAYS in the `.memory-bank/design`, if the folder does not exist, create a new one.
 
 memory_bank_strategy:
   initialization: |
@@ -697,7 +697,7 @@ memory_bank_strategy:
           <recursive>false</recursive>
           </list_files>
           <thinking>
-        * If memory-bank DOES exist, skip immediately to `if_memory_bank_exists`.
+        * If .memory-bank DOES exist, skip immediately to `if_memory_bank_exists`.
           </thinking>
   if_no_memory_bank: |
       1. **Inform the User:**  
@@ -729,7 +729,6 @@ memory_bank_strategy:
               b. Create `.memory-bank/productContext.md` with `initial_content`.
               c. Create `.memory-bank/activeContext.md` with `initial_content`.
               d. Create `.memory-bank/progress.md` with `initial_content`.
-              e. Create `.memory-bank/decisionLog.md` with `initial_content`.
               f. Create `.memory-bank/systemPatterns.md` with `initial_content`.
               g. Set status to '[MEMORY BANK: ACTIVE]' and inform the user that the Memory Bank has been initialized and is now active.
               h. Proceed with the task using the context from the Memory Bank or if no task is provided, use the ask_followup_question tool.
@@ -792,26 +791,6 @@ memory_bank_strategy:
       ## Next Steps
 
       *
-    decisionLog.md: |
-      # Decision Log
-
-      This file records architectural and implementation decisions using a list format.
-      YYYY-MM-DD HH:MM:SS - Log of updates made.
-
-      *
-      
-      ## Decision
-
-      *
-      
-      ## Rationale 
-
-      *
-
-      ## Implementation Details
-
-      *
-      
     systemPatterns.md: |
       # System Patterns *Optional*
 
@@ -841,7 +820,6 @@ memory_bank_strategy:
         1. Read `productContext.md`
         2. Read `activeContext.md` 
         3. Read `systemPatterns.md` 
-        4. Read `decisionLog.md` 
         5. Read `progress.md` 
         6. Set status to [MEMORY BANK: ACTIVE] and inform user.
         7. Proceed with the task using the context from the Memory Bank or if no task is provided, use the ask_followup_question tool.
@@ -851,15 +829,6 @@ general:
 
 memory_bank_updates:
   frequency: "UPDATE MEMORY BANK THROUGHOUT THE CHAT SESSION, WHEN SIGNIFICANT CHANGES OCCUR IN THE PROJECT."
-  decisionLog.md:
-    trigger: "When a significant architectural decision is made (new component, data flow change, technology choice, etc.). Use your judgment to determine significance."
-    action: |
-      <thinking>
-      I need to update decisionLog.md with a decision, the rationale, and any implications.
-      Use insert_content to *append* new information. Never overwrite existing entries. Always include a timestamp.
-      </thinking>
-    format: |
-      "[YYYY-MM-DD HH:MM:SS] - [Summary of Change/Focus/Issue]"
   productContext.md:
     trigger: "When the high-level project description, goals, features, or overall architecture changes significantly. Use your judgment to determine significance."
     action: |
@@ -936,7 +905,7 @@ umb:
           - Ensure cross-mode consistency
           - Preserve activity context
           - Document continuation points
-  task_focus: "During a UMB update, focus on capturing any clarifications, questions answered, or context provided *during the chat session*. This information should be added to the appropriate Memory Bank files (likely `activeContext.md` or `decisionLog.md`), using the other modes' update formats as a guide.  *Do not* attempt to summarize the entire project or perform actions outside the scope of the current chat."
+  task_focus: "During a UMB update, focus on capturing any clarifications, questions answered, or context provided *during the chat session*. This information should be added to the appropriate Memory Bank files (likely `activeContext.md`, using the other modes' update formats as a guide.  *Do not* attempt to summarize the entire project or perform actions outside the scope of the current chat."
   cross-mode_updates: "During a UMB update, ensure that all relevant information from the chat session is captured and added to the Memory Bank. This includes any clarifications, questions answered, or context provided during the chat. Use the other modes' update formats as a guide for adding this information to the appropriate Memory Bank files."
   post_umb_actions:
     - "Memory Bank fully synchronized"
