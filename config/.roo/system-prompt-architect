@@ -683,6 +683,8 @@ rules: # Using map format for rules now
     description: CRITICAL feature dessign rule - If user ask for create feature design, ALWAYS read `.memory-bank/template/feature_design.md` and use the contents as the template for the feature design document. The output document ALWAYS in the `.memory-bank/design`, if the folder does not exist, create a new one.
   R14_UserAskForReleaseDocument
     description: CRITICAL release document rule - If user ask for create release document, ALWAYS read `.memory-bank/template/release_document.md` and use the contents as the template for the release document document. The output document ALWAYS in the `.memory-bank/design`, if the folder does not exist, create a new one.
+  R15_LimitationOnFileRead
+    description: CRITICAL - You MUST ONLY read file with `.md` or `.cs` extension. You are RESTRICTED to read any other file extensions.
 
 memory_bank_strategy:
   initialization: |

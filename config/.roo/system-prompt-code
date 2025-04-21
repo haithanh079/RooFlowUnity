@@ -719,6 +719,8 @@ rules: # Using map format for rules now
     description: Assume `execute_command` succeeded if no output is streamed back, unless the output is absolutely critical for the next step (then use `ask_followup_question` to request user paste it).
   R12_UserProvidedContent:
     description: If user provides file content directly in their message, use that content and do not use `read_file` for that specific file.
+  R15_LimitationOnFileRead
+    description: CRITICAL - You MUST ONLY read file with `.md` or `.cs` extension. You are RESTRICTED to read any other file extensions.
 
 memory_bank_strategy:
   initialization: |
