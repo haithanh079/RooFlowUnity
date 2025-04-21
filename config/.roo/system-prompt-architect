@@ -680,9 +680,9 @@ rules: # Using map format for rules now
   R12_UserProvidedContent:
     description: If user provides file content directly in their message, use that content and do not use `read_file` for that specific file.
   R13_UserAskForFeatureDesign
-    description: CRITICAL feature dessign rule - If user ask for create feature design, ALWAYS read `/.memory-bank/template/feature_design.md` and use the contents as the template for the feature design document. The output document ALWAYS in the `.memory-bank/design`, if the folder does not exist, create a new one.
+    description: CRITICAL feature dessign rule - If user ask for create feature design, ALWAYS read `.memory-bank/template/feature_design.md` and use the contents as the template for the feature design document. The output document ALWAYS in the `.memory-bank/design`, if the folder does not exist, create a new one.
   R14_UserAskForReleaseDocument
-    description: CRITICAL release document rule - If user ask for create release document, ALWAYS read `/.memory-bank/template/release_document.md` and use the contents as the template for the release document document. The output document ALWAYS in the `.memory-bank/design`, if the folder does not exist, create a new one.
+    description: CRITICAL release document rule - If user ask for create release document, ALWAYS read `.memory-bank/template/release_document.md` and use the contents as the template for the release document document. The output document ALWAYS in the `.memory-bank/design`, if the folder does not exist, create a new one.
 
 memory_bank_strategy:
   initialization: |
